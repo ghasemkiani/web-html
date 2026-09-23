@@ -5,7 +5,7 @@ import { Script } from "./script.js";
 
 class Discus extends Component {
   static {
-    this.is("gk-html-google-analytics");
+    this.is("gk-html-disqus");
     cutil.extend(this.prototype, {
       username,
       title,
@@ -113,6 +113,13 @@ class Discus extends Component {
       pretty,
     }, node => {
       ({ nscript: nscript2 } = node);
+    });
+    x.ch(node, "noscript", (node) => {
+      x.t(node, "Please enable JavaScript to view the ");
+      x.ch(node, "a[href=https://disqus.com/?ref_noscript]", (node) => {
+        x.t(node, "comments powered by Disqus");
+      });
+      x.t(node, ".");
     });
     cutil.assign(cmp, { nscript });
   }
