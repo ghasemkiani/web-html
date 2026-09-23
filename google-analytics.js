@@ -35,8 +35,8 @@ class GoogleAnalytics0 extends Component {
 		this._asDataUri = asDataUri;
 	}
   get pretty() {
-		if (this.x.has(this, "as-data-uri")) {
-			this._pretty = cutil.asBooleanFromString(this.x.attr(this, "as-data-uri"));
+		if (this.x.has(this, "pretty")) {
+			this._pretty = cutil.asBooleanFromString(this.x.attr(this, "pretty"));
 		}
 		return this._pretty;
 	}
@@ -64,10 +64,11 @@ class GoogleAnalytics0 extends Component {
       x,
       node,
       url: `https://www.googletagmanager.com/gtag/js?id=${id}`,
-    } => {
-      ({ nscript: nscript1 } = node;);
+    }, node => {
+      ({ nscript: nscript1 } = node);
     });
     Script.run({
+      x,
       node,
       f: function ({ id }) {
         window.dataLayer = window.dataLayer || [];
@@ -81,8 +82,8 @@ class GoogleAnalytics0 extends Component {
       asDataUri,
       cdata,
       pretty,
-    } => {
-      ({ nscript: nscript2 } = node;);
+    }, node => {
+      ({ nscript: nscript2 } = node);
     });
     cutil.assign(cmp, { nscript1, nscript2 });
   }
