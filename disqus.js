@@ -7,10 +7,10 @@ class Discus extends Component {
   static {
     this.is("gk-html-disqus");
     cutil.extend(this.prototype, {
-      username,
-      title,
-      url,
-      uri,
+      username: null,
+      title: null,
+      url: null,
+      uri: null,
       _asDataUri: true,
       _pretty: true,
       _cdata: false,
@@ -84,7 +84,7 @@ class Discus extends Component {
   create({ x, node }) {
     let cmp = this;
     
-    const { id, asDataUri, cdata, pretty } = cmp;
+    const { id, asDataUri, cdata, pretty, username, title, url, uri } = cmp;
     
     let nscript;
     

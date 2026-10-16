@@ -11,6 +11,7 @@ class Stylesheet extends Component {
       _integrity: null,
       _crossorigin: null,
       _cdata: null,
+      onStylesheet: null,
       
       nlink: null,
       nstyle: null,
@@ -64,7 +65,7 @@ class Stylesheet extends Component {
   create({ x, node }) {
     let cmp = this;
     
-    const { url, f, asDataUri, integrity, crossorigin, cdata } = cmp;
+    const { url, f, asDataUri, integrity, crossorigin, cdata, onStylesheet } = cmp;
     
     let nlink;
     let nstyle;
